@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="gameOnApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+	<title ng-bind="'Quest.Fy - ' + $root.title"></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/app.css">
+	<base href="/klaus/game-on/">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body ng-controller="MainController" ng-cloak>
+	<aside class="aside-menu" ng-class="{'open':aside.open}">
+		<nav class="aside-navigator">
+			<ul class="aside-navigator-list">
+				<li class="header">
+					<h4 class="title">NAVEGAÇÃO</h4>
+				</li>
+				<li class="item" ng-repeat="item in menu">
+					<a ng-href="{{config.baseUrl(item.link)}}" ng-class="{'active':($location.path()==item.link)}" ng-click="aside.openAside()">
+						<span>{{item.title}}</span>
+						<i class="fa {{item.image}}"></i>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div class="content" ng-class="{'slide-content':aside.open}">
+		<header class="content-header">
+			<i class="fa fa-caret-right aside-menu-controller" ng-class="{'open':aside.open}" ng-click="aside.openAside()"></i>
+			<a href="{{config.baseUrl('/')}}" ng-click="aside.openAside(false)">
+				<span class="page-title">GAME ON</span>
+			</a>
+		</header>
+		<section ng-click="aside.openAside(false)">
+			<div ng-view>
+				
+			</div>
+		</section>
+		<footer>
+			
+		</footer>
+	</div>
+
+	
+	<script type="text/javascript" src="assets/js/assets.js"></script>
+	<script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/shared.js"></script>
+</body>
+</html>

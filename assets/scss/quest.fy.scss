@@ -1,0 +1,75 @@
+$primary-color: 		"#F44336";
+$primary-darker-color: 	"#D32F2F";
+$primary-lighter-color: "#FFCDD2";
+
+$secondary-color: 			"#FFAB40";
+$secondary-darker-color: 	"#FF9100";
+$secondary-lighter-color: 	"#FFD180";
+
+$dark-divider:	rgba(0,0,0,.12);
+$dark-disabled: rgba(0,0,0,.26);
+$dark-sec-text: rgba(0,0,0,.54);
+$dark-text: 	rgba(0,0,0,.87);
+
+$light-divider:		rgba(255,255,255,.12);
+$light-disabled: 	rgba(255,255,255,.30);
+$light-sec-text: 	rgba(255,255,255,.70);
+$light-text: 		rgba(255,255,255,.100);
+
+$main-font: 'Roboto Condensed','Times New Roman',serif;
+$title-font: 'Roboto','Times New Roman',serif;
+
+$desktop-width: 992px;
+$tablet-width: 768px;
+
+/** MIXINS - START **/
+@mixin border-radius($radius) {
+	-webkit-border-radius: 	$radius;
+	-moz-border-radius: 	$radius;
+	-ms-border-radius: 		$radius;
+	border-radius: 			$radius;
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+/** MIXINS - END **/
+/** ELEMENTS - START **/
+body {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: static;
+
+	* {
+		font-family: $main-font;
+	}
+}
+
+ul, ol{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a, a:hover, a:visited, a:active{
+	color: inherit;
+}
+/** ELEMENTS - END **/

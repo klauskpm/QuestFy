@@ -1,0 +1,25 @@
+<card type="task-list">
+	<div class="task-list-header">
+		<i class="fa fa-list-ul icon-left"></i>
+		<span>{{list.title}}</span>
+	</div>
+	<ul class="task-list">
+		<li>
+			<form id="newTaskForm" ng-submit="addTask(list, list.newTask);list.newTask.name = '';">
+				<input id="newTaskInput" type="text" ng-model="list.newTask.name" placeholder="Qual sua próxima tarefa?" class="new-task-input go-form-control">
+				
+				<button type="submit" class="go-full-button go-positive invert">
+					<span>
+						<i class="fa fa-plus icon-click add-task"></i> New Task
+					</span>
+				</button>
+			</form>
+		</li>
+		<li a ng-repeat="task in list.tasks">
+			<task></task>
+		</li>
+		<li ng-show="list.newTask.name.length>0" ng-init="task = list.newTask">
+			<task-preview></task-preview>
+		</li>
+	</ul>
+</card>
