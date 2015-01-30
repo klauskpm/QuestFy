@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="gameOnApp">
+<html ng-app="questFyApp">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 	<title ng-bind="'Quest.Fy - ' + $root.title"></title>
 	<link rel="stylesheet" type="text/css" href="assets/css/app.css">
-	<base href="/klaus/game-on/">
+	<base href="/klaus/quest-fy/">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
 </head>
@@ -30,7 +30,7 @@
 		<header class="content-header">
 			<i class="fa fa-caret-right aside-menu-controller" ng-class="{'open':aside.open}" ng-click="aside.openAside()"></i>
 			<a href="{{config.baseUrl('/')}}" ng-click="aside.openAside(false)">
-				<span class="page-title">GAME ON</span>
+				<span class="page-title">Quest.Fy</span>
 			</a>
 		</header>
 		<section ng-click="aside.openAside(false)">

@@ -1,6 +1,6 @@
 {
-  "name": "game-on",
-  "version": "0.0.1",
+  "name": "quest-fy",
+  "version": "0.0.2",
   "authors": [
     "Klaus Kazlauskas <klausmachado@gmail.com>"
   ],
@@ -9,7 +9,7 @@
     "node"
   ],
   "keywords": [
-    "['game-on'",
+    "['quest-fy'",
     "'gamefication'",
     "'gamefy']"
   ],

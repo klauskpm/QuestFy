@@ -1,6 +1,6 @@
 {
-  "name": "game-on",
-  "version": "0.0.1",
+  "name": "quest-fy",
+  "version": "0.0.2",
   "description": "Project based on Gamefication idea to implement in 3 roles: school, work and personal life.",
   "main": "package.json",
   "dependencies": {
@@ -18,7 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "['game-on'",
+    "['quest-fy'",
     "'gamefication'",
     "'gamefy']"
   ],

@@ -1,5 +1,5 @@
 (function(angular) {
-	gameOnApp.directive('modalButton', function($compile, Modal) {
+	app.directive('modalButton', function($compile, Modal) {
 		return {
 			restrict: 'A',
 	 		priority: 1001,
@@ -23,7 +23,7 @@
 		}
 	});
 
-	gameOnApp.factory('Modal', function(){
+	app.factory('Modal', function(){
 		return {
 			openModal: function(modalTemplate, modalParams) {
 				// console.log(modalParams);

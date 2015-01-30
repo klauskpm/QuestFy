@@ -1,26 +1,26 @@
 (function(angular){
-	gameOnApp.directive('taskList', function($scope) {
+	app.directive('taskList', function($scope) {
 		return {
 			restrict: 'E',
 			templateUrl: 'app/components/todo/taskListView.html'
 		};
 	});
 
-	gameOnApp.directive('task', function($scope) {
+	app.directive('task', function($scope) {
 		return {
 			restrict: 'E',
 			templateUrl: 'app/components/todo/taskView.html'
 		};
 	});
 
-	gameOnApp.directive('taskPreview', function($scope) {
+	app.directive('taskPreview', function($scope) {
 		return {
 			restrict: 'E',
 			templateUrl: 'app/components/todo/taskPreviewView.html'
 		};
 	});
 
-	gameOnApp.factory('Task', function($localStorage){
+	app.factory('Task', function($localStorage){
 		return {
 			showTask: function(task) {
 				alert(task.name);
@@ -59,7 +59,7 @@
 		};
 	});
 
-	gameOnApp.filter('taskStatus', function(){
+	app.filter('taskStatus', function(){
 		return function(status) {
 			if(status<0 && status>=-5) {
 				return 'status-negative-' + Math.abs(status);

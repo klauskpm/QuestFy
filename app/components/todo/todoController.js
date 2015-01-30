@@ -1,5 +1,5 @@
 (function(angular) {
-	gameOnApp.controller('TodoController', function($scope, Config, Task, $localStorage, $modal, $route, $routeParams, $filter){
+	app.controller('TodoController', function($scope, Config, Task, $localStorage, $modal, $route, $routeParams, $filter){
 		$scope.name = 'TodoController';
 		$scope.config = Config;
 		$scope.taskFct = Task;
@@ -65,7 +65,7 @@
 		};
 	});
 
-	gameOnApp.controller('TaskModalController', function($scope, $modalInstance, task){
+	app.controller('TaskModalController', function($scope, $modalInstance, task){
 		console.log(task);
 		$scope.task = task;
 	});

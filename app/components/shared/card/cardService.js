@@ -1,5 +1,5 @@
 (function(angular) {
-	gameOnApp.directive('card', function($scope) {
+	app.directive('card', function($scope) {
 		return {
 			restrict: 'E',
 			transclude: true,

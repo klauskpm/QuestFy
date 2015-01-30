@@ -1,7 +1,7 @@
 (function(angular) {
 	var components = 'app/components/';
 
-	gameOnApp.config(function($routeProvider, $locationProvider) {
+	app.config(function($routeProvider, $locationProvider) {
 		$routeProvider
 			.otherwise({redirectTo: '/'})
 			.when('/', {

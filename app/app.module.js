@@ -1,15 +1,14 @@
 (function(angular) {
-	var gameOnApp = this.gameOnApp = angular.module('gameOnApp', ['ngRoute', 'ngStorage', 'ui.bootstrap']);
+	var app = this.app = angular.module('questFyApp', ['ngRoute', 'ngStorage', 'ui.bootstrap']);
 
-	gameOnApp.run(['$location', '$rootScope', '$route', function($location, $rootScope, $route) {
+	app.run(['$location', '$rootScope', '$route', function($location, $rootScope, $route) {
 	    $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
 		    //Change page title, based on Route information
-		    console.log($route.current.$$route.title);
 	    	$rootScope.title = $route.current.$$route.title;
 	  	});
 	}]);
 
-	gameOnApp.controller('MainController',function($scope, Config, $route, $routeParams, $location){
+	app.controller('MainController',function($scope, Config, $route, $routeParams, $location){
 		$scope.$route = $route;
 		$scope.$routeParams = $routeParams;
 		$scope.$location = $location;
@@ -37,9 +36,9 @@
 
 
 
-	gameOnApp.factory('Config', function(){
+	app.factory('Config', function(){
 		var Config = function(){
-			var url = 'http://localhost/klaus/game-on/',
+			var url = 'http://localhost/klaus/quest-fy/',
 				root = 'app/',
 				img = 'assets/img/',
 				js = 'assets/js/',
