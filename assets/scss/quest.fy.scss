@@ -1,10 +1,10 @@
-$primary-color: 		"#F44336";
-$primary-darker-color: 	"#D32F2F";
-$primary-lighter-color: "#FFCDD2";
+$primary-color: 		#F44336;
+$primary-darker-color: 	#D32F2F;
+$primary-lighter-color: #FFCDD2;
 
-$secondary-color: 			"#FFAB40";
-$secondary-darker-color: 	"#FF9100";
-$secondary-lighter-color: 	"#FFD180";
+$secondary-color: 			#FFAB40;
+$secondary-darker-color: 	#FF9100;
+$secondary-lighter-color: 	#FFD180;
 
 $dark-divider:	rgba(0,0,0,.12);
 $dark-disabled: rgba(0,0,0,.26);
@@ -14,7 +14,7 @@ $dark-text: 	rgba(0,0,0,.87);
 $light-divider:		rgba(255,255,255,.12);
 $light-disabled: 	rgba(255,255,255,.30);
 $light-sec-text: 	rgba(255,255,255,.70);
-$light-text: 		rgba(255,255,255,.100);
+$light-text: 		rgba(255,255,255,1);
 
 $main-font: 'Roboto Condensed','Times New Roman',serif;
 $title-font: 'Roboto','Times New Roman',serif;
@@ -76,33 +76,91 @@ a, a:hover, a:visited, a:active{
 	color: inherit;
 }
 /** ELEMENTS - END **/
+/** EXTANDABLE - START **/
+.header{
+	height: $desktop-header;
+	line-height: $desktop-header;
+	width: 100%;
+	font-size: 24px;
+	display: block;
+	font-family: $title-font;
+
+	@include mobile{
+		height: $mobile-header;
+		line-height: $mobile-header;
+		font-size: 20px;
+	}
+}
+
+.button{
+	text-align: center;
+	line-height: 48px;
+	width: 48px;
+	height: 48px;
+	font-size: 20px;
+	cursor: pointer;
+
+	@include mobile{
+		font-size: 16px;
+	}
+
+	&:active{
+		box-shadow: inset 0 0 5px rgba(0,0,0,.35);
+	}
+}
+/** EXTANDABLE - END **/
 /** CUSTOM - START **/
 .content{
-	position: fixed;
 	width: 100%;
 	height: 100%;
-	top: 0;
-	left: 0;
-	transform: translate3d(0, 0 , 0);
+	transform: none;
 	transition: all 0.8s;
 	overflow-y: scroll;
 	z-index: 5;
 }
 
 .content-header{
-	background: #C3272B;
-	height: 40px;
-	width: 100%;
-	display: block;
+	@extend .header;
+	box-shadow: 0 1px 5px rgba(0,0,0,.40);
+	background: $primary-color;
+	color: $light-text;
+	position: fixed;
+	top: 0;
+	z-index: 50;
+}
+
+.fake-header{
+	@extend .header;
 }
 
 .page-title{
-	font-size: 20px;
-	float: left;
-	height: 40px;
-	line-height: 40px;
-	color: #fff;
-	font-family: 'Roboto','Times New Roman',serif;
+	@extend .header;
+	float: none;
+	position: fixed;
+	left: 72px;
+	right: 72px;
+	top: 0;
+
+	@include mobile{
+		left: 56px;
+		right: 56px;
+	}
+}
+
+.fixed-button{
+	position: fixed;
+	@extend .button;
+}
+
+.menu-controller{
+	@extend .fixed-button;
+	left: 12px;
+	top: 8px;
+
+	@include mobile{
+		left: 4px;
+		top: 4px;
+	}
 }
 
 .navbar{
