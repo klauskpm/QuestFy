@@ -16,6 +16,8 @@ $light-disabled: 	rgba(255,255,255,.30);
 $light-sec-text: 	rgba(255,255,255,.70);
 $light-text: 		rgba(255,255,255,1);
 
+$clickable-size: 48px;
+
 $main-font: 'Roboto Condensed','Times New Roman',serif;
 $title-font: 'Roboto','Times New Roman',serif;
 
@@ -59,10 +61,13 @@ body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	position: static;
 
 	* {
 		font-family: $main-font;
+	}
+
+	.disable-scroll{
+		overflow-y: hidden;
 	}
 }
 
@@ -92,11 +97,15 @@ a, a:hover, a:visited, a:active{
 	}
 }
 
+.clickable-box{
+	height: $clickable-size;
+	line-height: $clickable-size;
+}
+
 .button{
+	@extend .clickable-box;
 	text-align: center;
-	line-height: 48px;
-	width: 48px;
-	height: 48px;
+	width: $clickable-size;
 	font-size: 20px;
 	cursor: pointer;
 
@@ -203,3 +212,62 @@ a, a:hover, a:visited, a:active{
 	background: transparent;
 }
 /** CUSTOM - END **/
+/** ASIDE MENU - START **/
+.aside-menu{
+	width: 240px;
+	height: auto;
+	position: absolute;
+	top: 0;
+	transform: translate3d(-240px, 0 , 0);
+	z-index: 5;
+	bottom: 0;
+	transition: all 0.8s;
+
+	.aside-title{
+		@extend .header;
+		padding: 0px 0px 0px 24px;
+		color: #F44336;
+		border-bottom: 1px solid $primary-lighter-color;
+	}
+
+	.aside-navigator{
+		width: 100%;
+		background: $light-text;
+		padding: 12px 0 12px 0;
+
+		.item{
+			@extend .clickable-box;
+			font-size: 14px;
+			width: 100%;
+			color: $dark-text;
+			font-weight: bolder;
+
+			a{
+				padding: 0 24px;
+				width: 100%;
+				height: 100%;
+				display: block;
+				text-decoration: none;
+
+				&:active{
+					background: $primary-lighter-color;
+					color: $primary-color;
+				}
+
+				&.active{
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}
+
+.aside-menu.open{
+	transform: translate3d(0, 0 , 0);
+	box-shadow: 0 0 10px rgba(20,20,20,.8);
+}
+
+.slide-content{
+	transform: translate3d(240px, 0 , 0);
+}
+/** ASIDE MENU - END **/

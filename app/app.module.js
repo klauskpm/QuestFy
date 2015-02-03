@@ -51,7 +51,7 @@
 			this.components = root+components;
 
 			this.baseUrl = function(route) {
-				return url + route;
+				return url + '#' + route;
 			};
 		};
 		return new Config();

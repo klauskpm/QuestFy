@@ -24,6 +24,6 @@
 				image: 'fa-cube'
 			});
 
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(false);
 	});
 })(window.angular);
