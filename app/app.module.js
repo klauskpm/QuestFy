@@ -20,8 +20,7 @@
 			if(route.menu) {
 				$scope.menu.push({
 					title: route.title,
-					link: link,
-					image: route.image
+					link: link
 				});
 			}
 		});

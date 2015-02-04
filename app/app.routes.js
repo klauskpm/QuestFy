@@ -7,21 +7,14 @@
 			.when('/', {
 				templateUrl: components + 'todo/todoView.html',
 				controller: 'TodoController',
-				title: 'Home',
-				menu: true,
-				image: 'fa-home'
-			})
-			.when('/teste/:isso?', {
-				templateUrl: components + 'teste/testeView.html',
-				controller: 'TesteController',
-				title: 'Teste'
+				title: 'My Tasks',
+				menu: true
 			})
 			.when('/outro-teste', {
 				templateUrl: components + 'teste/testeView.html',
 				controller: 'TodoController',
-				title: 'Testado',
-				menu: true,
-				image: 'fa-cube'
+				title: 'Oh shit this is awesome',
+				menu: true
 			});
 
 		$locationProvider.html5Mode(false);
