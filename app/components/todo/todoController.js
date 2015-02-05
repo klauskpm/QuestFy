@@ -1,5 +1,5 @@
 (function(angular) {
-	app.controller('TodoController', function($scope, Config, Task, $localStorage, $modal, $route, $routeParams, $filter){
+	app.controller('TodoController', function($scope, Config, Task, $localStorage, $modal, $route, $routeParams, $filter, $swipe){
 		$scope.name = 'TodoController';
 		$scope.config = Config;
 		$scope.taskFct = Task;
@@ -63,6 +63,28 @@
 				});
 			}
 		};
+
+		$scope.alohinha = {
+			priority: 101,
+			move: function() {
+				console.log('MOVEU2');
+			}
+		};
+
+		$swipe.bind(angular.element(document.querySelector('.editable-container')), {
+					start: function(cords){
+						console.log('start: ', cords);
+					},
+					move: function(cords){
+						console.log('move: ', cords);
+					},
+					end: function(cords){
+						console.log('end: ', cords);
+					},
+					cancel: function(cords){
+						console.log('cancel: ', cords);
+					}
+				});
 	});
 
 	app.controller('TaskModalController', function($scope, $modalInstance, task){

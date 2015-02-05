@@ -11,7 +11,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="MainController" ng-cloak>
+<body ng-controller="MainController" ng-menu-slide="aside.openAside()" ng-cloak>
 	<div class="aside-overlay" ng-class="{'open':aside.open}" ng-click="aside.openAside(false)"></div>
 	<aside class="aside-menu" ng-class="{'open':aside.open}">
 		<div class="aside-title">Quest.Fy</div>
@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
 	</aside>
-	<div class="content">
+	<div class="content" ng-swipe-object="aloha">
 		<header class="content-header">
 			<i class="fa fa-navicon menu-controller" ng-click="aside.openAside()"></i>
 			<span class="page-title">{{$root.title}}</span>

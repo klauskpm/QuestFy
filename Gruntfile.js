@@ -13,6 +13,7 @@ module.exports = function(grunt) {
           'assets/js/assets.js': [
             'assets/js/angular.min.js',
             'assets/js/angular-route.min.js',
+            'assets/js/angular-touch.min.js',
             'bower_components/jquery/dist/jquery.min.js',
             'bower_components/bootstrap/dist/js/bootstrap.min.js',
             'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
@@ -51,7 +52,8 @@ module.exports = function(grunt) {
         files: [
           'app/app.module.js',
           'app/app.routes.js',
-          'app/components/**/*.js'
+          'app/components/**/*.js',
+          'app/components/*/*.js'
         ],
         tasks: ['uglify']
       },

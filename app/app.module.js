@@ -1,5 +1,5 @@
 (function(angular) {
-	var app = this.app = angular.module('questFyApp', ['ngRoute', 'ngStorage', 'ui.bootstrap']);
+	var app = this.app = angular.module('questFyApp', ['ngRoute', 'ngStorage', 'ngTouch', 'ui.bootstrap', 'ngSwipeHandler']);
 
 	app.run(['$location', '$rootScope', '$route', function($location, $rootScope, $route) {
 	    $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
@@ -8,7 +8,7 @@
 	  	});
 	}]);
 
-	app.controller('MainController',function($scope, Config, $route, $routeParams, $location){
+	app.controller('MainController',function($scope, Config, $route, $routeParams, $location, $swipe){
 		$scope.$route = $route;
 		$scope.$routeParams = $routeParams;
 		$scope.$location = $location;
@@ -31,6 +31,29 @@
 				$scope.aside.open = !angular.isUndefined(open)?open:!$scope.aside.open;
 			}
 		};
+
+		$scope.aloha = {
+			priority: 100,
+			move: function() {
+				console.log('MOVEU');
+			}
+		};
+
+		// $swipe.bind(angular.find('.editable-container'), {
+		// 			start: function(cords){
+		// 				console.log(elm);
+		// 				console.log('start: ', cords);
+		// 			},
+		// 			move: function(cords){
+		// 				console.log('move: ', cords);
+		// 			},
+		// 			end: function(cords){
+		// 				console.log('end: ', cords);
+		// 			},
+		// 			cancel: function(cords){
+		// 				console.log('cancel: ', cords);
+		// 			}
+		// 		});
 	});
 
 

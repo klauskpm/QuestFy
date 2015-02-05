@@ -7,7 +7,7 @@
 	</li>
 </ul> -->
 
-<div class="floating-block add-tasks editable-block">
+<div class="floating-block add-tasks editable-block" ng-swipe-object="alohinha">
 	<div class="placeholder-text" tabindex="0" ng-class="{'focus':editableFocus}" ng-if="!newList.title.length">Qual é sua próxima lista?</div>
 	<input type="text" class="editable-container" ng-model="newList.title" ng-focus="editableFocus = true" ng-blur="editableFocus = false" ng-enter="addList(newList); newList.title = '';"/>
 </div>
