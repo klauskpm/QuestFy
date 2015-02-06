@@ -8,7 +8,7 @@
 	  	});
 	}]);
 
-	app.controller('MainController',function($scope, Config, $route, $routeParams, $location, $swipe){
+	app.controller('MainController',function($scope, Config, $route, $routeParams, $location, $swipe, SwipeInstance){
 		$scope.$route = $route;
 		$scope.$routeParams = $routeParams;
 		$scope.$location = $location;
@@ -32,12 +32,15 @@
 			}
 		};
 
-		$scope.aloha = {
+		$scope.pedrinho = new SwipeInstance();
+		console.log($scope.pedrinho);
+
+		$scope.aloha = new SwipeInstance({
 			priority: 100,
 			move: function() {
 				console.log('MOVEU');
 			}
-		};
+		});
 
 		// $swipe.bind(angular.find('.editable-container'), {
 		// 			start: function(cords){

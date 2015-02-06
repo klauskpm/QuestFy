@@ -2,65 +2,65 @@
 	'use strict';
 	var ngSwipeHandler = angular.module('ngSwipeHandler', ['ngTouch']);
 
-	ngSwipeHandler.directive('ngSwipeObject', function($swipe, SwipeFactory){
-		// Runs during compile
+	ngSwipeHandler.directive('ngSwipeAction', function($swipe, SwipeManager){
 		return {
 			restrict: 'A',
 			link: function(scope, elm, attrs, controller) {
 				$swipe.bind(elm, {
 					start: function(cords) {
-						var swipeObject = scope.$eval(attrs.ngSwipeObject);
-						console.log(swipeObject.priority);
-						SwipeFactory.add(swipeObject, cords);
+						SwipeManager.set(scope.$eval(attrs.ngSwipeAction), cords);
 					},
 					move: function(cords) {
-						console.log(SwipeFactory.swipeObject, cords, SwipeFactory.swipeObject.move());
+						SwipeManager.instance.move(cords)
 					},
 					end: function(cords) {
-						SwipeFactory.swipeObject.end(cords);
-						SwipeFactory.reset();
+						SwipeManager.instance.end(cords);
+						SwipeManager.reset();
 					},
 					cancel: function(cords){
-						SwipeFactory.swipeObject.cancel(cords);
-						SwipeFactory.reset();
+						SwipeManager.instance.cancel(cords);
+						SwipeManager.reset();
 					}
-				})
-				console.log(attrs.ngSwipeObject);
+				});
 			}
 		};
 	});
 
-	ngSwipeHandler.factory('SwipeFactory', function(){
-		var sampleSwipeObject = {
-			priority: 0,
-			move: function(){},
-			end: function(){},
-			cancel: function(){},
-			startCords: {
-				x:0,
-				y:0
+	ngSwipeHandler.factory('SwipeManager', function(SwipeInstance){
+		return {
+			instance: new SwipeInstance(),
+			reset: function() {
+				this.instance = new SwipeInstance();
+			},
+			set: function(swipeObject, cords) {
+				swipeObject.cords = cords;
+
+				var swipeIns = new SwipeInstance(swipeObject);
+
+				if(swipeIns.priority>this.instance.priority) {
+					this.instance = swipeIns;
+				}
 			}
 		};
+	});
 
-		return {
-			swipeObject: Object.create(sampleSwipeObject),
-			reset: function() {
-				this.swipeObject = Object.create(sampleSwipeObject);
-			},
-			add: function(newSwipeObject, cords) {
-				var swipeObject = Object.create(sampleSwipeObject);
-				newSwipeObject.startCords = cords;
+	ngSwipeHandler.factory('SwipeInstance', function(){
+		return function(options){
+			var settings = {
+				priority: 0,
+				move: function(){},
+				end: function(){},
+				cancel: function(){},
+				cords: {x:0,y:0}
+			};
 
-				angular.extend(swipeObject, newSwipeObject);
+			angular.extend(settings, options);
 
-				if(this.swipeObject) {
-					if(swipeObject.priority<this.swipeObject.priority) {
-						swipeObject = this.swipeObject;
-					}
-				}
-
-				this.swipeObject = swipeObject;
-			}
+			this.priority = settings.priority;
+			this.move = settings.move;
+			this.end = settings.end;
+			this.cancel = settings.cancel;
+			this.startCords = settings.cords;
 		};
 	})
 })();
