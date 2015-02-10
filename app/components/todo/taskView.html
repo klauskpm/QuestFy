@@ -1,6 +1,6 @@
-<div class="task" ng-class="task.status | taskStatus" ng-mouseleave="taskFct.toogleOption(list)">
-	<i class="go-single-button fa fa-plus go-left go-positive" ng-click="taskFct.updateStatus(list, task, 1)"></i>
-	<i class="go-single-button fa fa-minus go-left go-negative" ng-click="taskFct.updateStatus(list, task, -1)"></i>
+<div class="task" ng-class="taskFct.getStatus(task)" ng-mouseleave="taskFct.toogleOption(list)">
+	<i class="go-single-button fa fa-plus go-left go-positive" ng-click="taskFct.setStatus(list, task, 1)"></i>
+	<i class="go-single-button fa fa-minus go-left go-negative" ng-click="taskFct.setStatus(list, task, -1)"></i>
 	<span class="title">{{task.name}}</span>
 	<i class="go-single-button fa fa-ellipsis-v go-left go-options" ng-class="{'invert':task.options}" ng-click="taskFct.toogleOption(list, task)"></i>
 	<ul class="task-options" ng-class="{'active':task.options}">

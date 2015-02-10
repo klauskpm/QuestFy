@@ -1,5 +1,5 @@
 (function(angular) {
-	app.controller('TodoController', function($scope, Config, Task, $localStorage, $modal, $route, $routeParams, $filter, $swipe, SwipeInstance){
+	app.controller('TodoController', function($scope, Config, Task, $localStorage, $modal, $route, $routeParams, $filter, $swipe, SwipeInstance, TaskClass){
 		$scope.name = 'TodoController';
 		$scope.config = Config;
 		$scope.taskFct = Task;
