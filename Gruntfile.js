@@ -14,9 +14,6 @@ module.exports = function(grunt) {
             'assets/js/angular.min.js',
             'assets/js/angular-route.min.js',
             'assets/js/angular-touch.min.js',
-            'bower_components/jquery/dist/jquery.min.js',
-            'bower_components/bootstrap/dist/js/bootstrap.min.js',
-            'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
           ],
           'assets/js/app.js': [
             'app/app.module.js',
@@ -34,8 +31,6 @@ module.exports = function(grunt) {
         files: {
           'assets/css/app.css': [
             'bower_components/fontawesome/css/font-awesome.css',
-            'bower_components/bootstrap/dist/css/bootstrap.min.css',
-            'bower_components/bootstrap/dist/css/bootstrap.theme.min.css',
             'assets/css/main.css'
           ]
         }
