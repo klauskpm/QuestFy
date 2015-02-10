@@ -9,29 +9,32 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/quest.fy.css">
 	<!-- <base href="/klaus/quest-fy/"> -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=RobotoDraft:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="MainController" ng-menu-slide="aside.openAside()" ng-cloak>
-	<div class="aside-overlay" ng-class="{'open':aside.open}" ng-click="aside.openAside(false)"></div>
-	<aside class="aside-menu" ng-class="{'open':aside.open}">
-		<div class="aside-title">Quest.Fy</div>
-		<nav class="aside-navigator">
-			<ul>
-				<li class="item" ng-repeat="item in menu">
-					<a ng-href="{{config.baseUrl(item.link)}}" ng-class="{'active':($location.path()==item.link)}" ng-click="aside.openAside()">
-						{{item.title}}
-						<!-- <i class="fa {{item.image}}"></i> -->
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</aside>
-	<div class="content" ng-swipe-action="aloha">
-		<header class="content-header">
-			<i class="fa fa-navicon menu-controller" ng-click="aside.openAside()"></i>
-			<span class="page-title">{{$root.title}}</span>
-		</header>
-		<div class="fake-header"></div>
+<body ng-controller="MainController" layout="row">
+	<div layout="column" role="main" flex>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+	      		<h3 class="md-toolbar-item">
+		        	<span>Toolbar</span>
+	      		</h3>
+	      	</div>
+	    </md-toolbar>
+		<md-content md-scroll-y flex style="height 600px;">
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+			<div style="height: 160px; width: 160px;">a</div>
+		</md-content>
 		<section>
 			<div ng-view>
 				
@@ -44,7 +47,6 @@
 
 	
 	<script type="text/javascript" src="assets/js/assets.js"></script>
-	<script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
 	<script type="text/javascript" src="assets/js/app.js"></script>
 	<script type="text/javascript" src="assets/js/shared.js"></script>
 </body>

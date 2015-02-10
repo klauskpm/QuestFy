@@ -11,17 +11,20 @@ module.exports = function(grunt) {
       my_target: {
         files: {
           'assets/js/assets.js': [
-            'assets/js/angular.min.js',
+            'bower_components/angular/angular.min.js',
+            'bower_components/angular-animate/angular-animate.min.js',
+            'bower_components/angular-aria/angular-aria.min.js',
+            'bower_components/angular-material/angular-material.min.js',
             'assets/js/angular-route.min.js',
             'assets/js/angular-touch.min.js',
           ],
           'assets/js/app.js': [
             'app/app.module.js',
             'app/app.routes.js',
-            'app/components/*/*.js'
+            'app/components/*/*.js',
           ],
           'assets/js/shared.js': [
-            'app/components/shared/**/*.js'
+            'app/components/shared/**/*.js',
           ]
         }
       }
@@ -31,7 +34,8 @@ module.exports = function(grunt) {
         files: {
           'assets/css/app.css': [
             'bower_components/fontawesome/css/font-awesome.css',
-            'assets/css/main.css'
+            'assets/css/quest.fy.css',
+            'bower_components/angular-material/angular-material.min.css',
           ]
         }
       }
@@ -39,7 +43,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: [
-          'assets/css/main.css'
+          'assets/css/quest.fy.css',
         ],
         tasks: ['cssmin']
       },
@@ -48,7 +52,7 @@ module.exports = function(grunt) {
           'app/app.module.js',
           'app/app.routes.js',
           'app/components/**/*.js',
-          'app/components/*/*.js'
+          'app/components/*/*.js',
         ],
         tasks: ['uglify']
       },
@@ -60,10 +64,10 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed'
+          style: 'compressed',
         },
         files: {
-          'assets/css/quest.fy.css': 'assets/scss/quest.fy.scss'
+          'assets/css/quest.fy.css': 'assets/scss/quest.fy.scss',
         }
       }
     }

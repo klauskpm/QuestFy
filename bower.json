@@ -26,6 +26,7 @@
     "grunt": "~0.4.5"
   },
   "devDependencies": {
-    "fontawesome": "~4.2.0"
+    "fontawesome": "~4.2.0",
+    "angular-material": "master"
   }
 }
