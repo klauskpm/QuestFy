@@ -12,28 +12,35 @@
 	<link href='http://fonts.googleapis.com/css?family=RobotoDraft:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body ng-controller="MainController" layout="row">
+
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+		<md-toolbar>
+			<h1 class="md-toolbar-tools">Sidenav Left</h1>
+		</md-toolbar>
+	  	<md-content class="md-padding">
+    		<p hide-md show-gt-md>
+		      This sidenav is locked open on your device. To go back to the default behavior,
+		      narrow your display.
+		    </p>
+	  	</md-content>
+    </md-sidenav>
+
 	<div layout="column" role="main" flex>
-		<md-toolbar md-scroll-shrink>
+
+		<md-toolbar>
 			<div class="md-toolbar-tools">
 	      		<h3 class="md-toolbar-item">
-		        	<span>Toolbar</span>
+		        	<span ng-click="toggleLeft()">My Tasks</span>
 	      		</h3>
 	      	</div>
 	    </md-toolbar>
 		<md-content md-scroll-y flex style="height 600px;">
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
-			<div style="height: 160px; width: 160px;">a</div>
+			<md-subheader class="md-primary">Unread Messages</md-subheader>
+			<md-list>
+	      		<md-item ng-repeat="sprite in todos">
+		        	<img ng-src="http://pokeapi.co{{sprite.image}}" alt="{{sprite.pokemon.name}}">
+		      	</md-item>
+		    </md-list>
 		</md-content>
 		<section>
 			<div ng-view>

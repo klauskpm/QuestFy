@@ -8,23 +8,31 @@
 	  	});
 	}]);
 
-	app.controller('MainController',function($scope){
+	app.controller('MainController',function($scope, $timeout, $http, $mdSidenav){
 
-		var item = {
-		    face: '#',
-		    what: 'Brunch this weekend?',
-		    who: 'Min Li Chan',
-		    notes: "I'll be in your neighborhood doing errands."
-		  };
-		  $scope.todos = [];
-		  for (var i = 0; i < 15; i++) {
-		    $scope.todos.push({
-		      face: '#',
-		      what: "Brunch this weekend?",
-		      who: "Min Li Chan",
-		      notes: "I'll be in your neighborhood doing errands."
-		    });
-		  }
+	  	$scope.todos = [];
+
+	  	$http.get("http://pokeapi.co/api/v1/pokedex/1/")
+	  		.then(function(response) {
+
+	  			angular.forEach(response.data.pokemon.slice(0, 10), function(pokemon, key) {
+
+	  				$http.get("http://pokeapi.co/" + pokemon.resource_uri)
+	  					.then(function(pokemonResponse) {
+
+	  						$http.get("http://pokeapi.co/" + pokemonResponse.data.sprites[0].resource_uri)
+	  							.then(function(spriteResponse){
+	  								$scope.todos.push(spriteResponse.data);
+	  							});
+	  					});
+	  			});
+	  		});
+
+	  	$scope.toggleLeft = function() {
+	  		$mdSidenav('left').toggle().then(function() {
+	  			console.log('Foi');
+	  		});
+	  	}
 
 	});
 })(window.angular);
